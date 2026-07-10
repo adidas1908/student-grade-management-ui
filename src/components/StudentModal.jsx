@@ -21,172 +21,200 @@ function StudentModal({
 
     return (
 
-        <div
-            className="modal fade"
-            id="studentModal"
-            tabIndex="-1"
-        >
+    <div
+        className="modal fade"
+        id="studentModal"
+        tabIndex="-1"
+    >
 
-            <div className="modal-dialog modal-lg">
+        <div className="modal-dialog modal-lg modal-dialog-centered">
 
-                <div className="modal-content">
+            <div
+                className="modal-content border-0 shadow-lg"
+                style={{
+                    background: "#1e293b",
+                    color: "white",
+                    borderRadius: "20px"
+                }}
+            >
 
-                    <div className="modal-header">
+                <div
+                    className="modal-header border-0"
+                    style={{
+                        background:
+                            "linear-gradient(90deg,#7c3aed,#2563eb)"
+                    }}
+                >
 
-                        <h4>
+                    <h4 className="modal-title fw-bold">
 
-                            {editingId
-                                ? "Edit Student"
-                                : "Add Student"}
+                        {editingId
+                            ? "✏ Edit Student"
+                            : "🎓 Add Student"}
 
-                        </h4>
+                    </h4>
 
-                        <button
-                            className="btn-close"
-                            data-bs-dismiss="modal"
-                            id="closeModal">
-                        </button>
+                    <button
+                        className="btn-close btn-close-white"
+                        data-bs-dismiss="modal"
+                        id="closeModal"
+                    ></button>
 
-                    </div>
+                </div>
 
-                    <div className="modal-body">
+                <div className="modal-body p-4">
 
-                        <div className="row">
+                    <div className="row">
 
-                            <div className="col-md-6 mb-3">
+                        <div className="col-md-6 mb-3">
 
-                                <label className="form-label">
+                            <label className="form-label text-white">
+                                First Name
+                            </label>
 
-                                    First Name
+                            <input
+                                type="text"
+                                className="form-control"
+                                name="firstName"
+                                value={form.firstName}
+                                onChange={handleChange}
+                                style={{
+                                    background: "#334155",
+                                    color: "white",
+                                    border: "1px solid #475569"
+                                }}
+                            />
 
-                                </label>
+                        </div>
 
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    name="firstName"
-                                    value={form.firstName}
-                                    onChange={handleChange}
-                                />
+                        <div className="col-md-6 mb-3">
 
-                            </div>
+                            <label className="form-label text-white">
+                                Last Name
+                            </label>
 
-                            <div className="col-md-6 mb-3">
+                            <input
+                                type="text"
+                                className="form-control"
+                                name="lastName"
+                                value={form.lastName}
+                                onChange={handleChange}
+                                style={{
+                                    background: "#334155",
+                                    color: "white",
+                                    border: "1px solid #475569"
+                                }}
+                            />
 
-                                <label className="form-label">
+                        </div>
 
-                                    Last Name
+                        <div className="col-md-6 mb-3">
 
-                                </label>
+                            <label className="form-label text-white">
+                                Email
+                            </label>
 
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    name="lastName"
-                                    value={form.lastName}
-                                    onChange={handleChange}
-                                />
+                            <input
+                                type="email"
+                                className="form-control"
+                                name="email"
+                                value={form.email}
+                                onChange={handleChange}
+                                style={{
+                                    background: "#334155",
+                                    color: "white",
+                                    border: "1px solid #475569"
+                                }}
+                            />
 
-                            </div>
+                        </div>
 
-                            <div className="col-md-6 mb-3">
+                        <div className="col-md-6 mb-3">
 
-                                <label className="form-label">
+                            <label className="form-label text-white">
+                                Phone
+                            </label>
 
-                                    Email
+                            <input
+                                type="text"
+                                className="form-control"
+                                name="phone"
+                                value={form.phone}
+                                onChange={handleChange}
+                                style={{
+                                    background: "#334155",
+                                    color: "white",
+                                    border: "1px solid #475569"
+                                }}
+                            />
 
-                                </label>
+                        </div>
 
-                                <input
-                                    type="email"
-                                    className="form-control"
-                                    name="email"
-                                    value={form.email}
-                                    onChange={handleChange}
-                                />
+                        <div className="col-md-6 mb-3">
 
-                            </div>
+                            <label className="form-label text-white">
+                                Course
+                            </label>
 
-                            <div className="col-md-6 mb-3">
+                            <input
+                                type="text"
+                                className="form-control"
+                                name="course"
+                                value={form.course}
+                                onChange={handleChange}
+                                style={{
+                                    background: "#334155",
+                                    color: "white",
+                                    border: "1px solid #475569"
+                                }}
+                            />
 
-                                <label className="form-label">
+                        </div>
 
-                                    Phone
+                        <div className="col-md-6 mb-3">
 
-                                </label>
+                            <label className="form-label text-white">
+                                Semester
+                            </label>
 
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    name="phone"
-                                    value={form.phone}
-                                    onChange={handleChange}
-                                />
-
-                            </div>
-
-                            <div className="col-md-6 mb-3">
-
-                                <label className="form-label">
-
-                                    Course
-
-                                </label>
-
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    name="course"
-                                    value={form.course}
-                                    onChange={handleChange}
-                                />
-
-                            </div>
-
-                            <div className="col-md-6 mb-3">
-
-                                <label className="form-label">
-
-                                    Semester
-
-                                </label>
-
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    name="semester"
-                                    value={form.semester}
-                                    onChange={handleChange}
-                                />
-
-                            </div>
+                            <input
+                                type="number"
+                                className="form-control"
+                                name="semester"
+                                value={form.semester}
+                                onChange={handleChange}
+                                style={{
+                                    background: "#334155",
+                                    color: "white",
+                                    border: "1px solid #475569"
+                                }}
+                            />
 
                         </div>
 
                     </div>
 
-                    <div className="modal-footer">
+                </div>
 
-                        <button
-                            className="btn btn-secondary"
-                            data-bs-dismiss="modal">
+                <div className="modal-footer border-0">
 
-                            Cancel
+                    <button
+                        className="btn btn-secondary rounded-pill px-4"
+                        data-bs-dismiss="modal"
+                    >
+                        Cancel
+                    </button>
 
-                        </button>
+                    <button
+                        className="btn btn-primary rounded-pill px-4"
+                        onClick={saveStudent}
+                    >
 
-                        <button
-                            className="btn btn-success"
-                            onClick={saveStudent}
-                        >
+                        {editingId
+                            ? "Update Student"
+                            : "Add Student"}
 
-                            {editingId
-                                ? "Update Student"
-                                : "Save Student"}
-
-                        </button>
-
-                    </div>
+                    </button>
 
                 </div>
 
@@ -194,8 +222,8 @@ function StudentModal({
 
         </div>
 
-    );
+    </div>
 
+);
 }
-
-export default StudentModal;
+export default StudentModal
