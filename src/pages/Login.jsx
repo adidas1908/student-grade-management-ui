@@ -23,26 +23,65 @@ function Login() {
 
             localStorage.setItem("token", response.data.data.token);
 
-await Swal.fire({
-    icon: "success",
-    title: "Login Successful!",
-    text: "Welcome back 👋",
-    timer: 1800,
-    showConfirmButton: false,
-    background: "#1e293b",
-    color: "#fff"
-});
+            await Swal.fire({
+                icon: "success",
+                title: "Login Successful!",
+                text: "Welcome back 👋",
+                timer: 1800,
+                showConfirmButton: false,
+                background: "#1e293b",
+                color: "#fff"
+            });
 
-navigate("/dashboard");
+            navigate("/dashboard");
+
         } catch (error) {
 
-Swal.fire({
-    icon: "error",
-    title: "Login Failed",
-    text: "Invalid Email or Password",
-    background: "#1e293b",
-    color: "#fff"
-});            console.log(error);
+            Swal.fire({
+                icon: "error",
+                title: "Login Failed",
+                text: "Invalid Email or Password",
+                background: "#1e293b",
+                color: "#fff"
+            });
+
+            console.log(error);
+
+        }
+
+    };
+
+    const handleDemoLogin = async () => {
+
+        try {
+
+            const response = await api.post("/auth/demo-login");
+
+            localStorage.setItem("token", response.data.data.token);
+
+            await Swal.fire({
+                icon: "success",
+                title: "Demo Login Successful!",
+                text: "Exploring Student Grade Management 🚀",
+                timer: 1800,
+                showConfirmButton: false,
+                background: "#1e293b",
+                color: "#fff"
+            });
+
+            navigate("/dashboard");
+
+        } catch (error) {
+
+            Swal.fire({
+                icon: "error",
+                title: "Demo Login Failed",
+                text: "Demo account is unavailable.",
+                background: "#1e293b",
+                color: "#fff"
+            });
+
+            console.log(error);
 
         }
 
@@ -56,17 +95,31 @@ Swal.fire({
 
                 <div className="col-md-5">
 
-                    <div className="card shadow-lg">
+                    <div className="card shadow-lg border-0 rounded-4">
 
-                        <div className="card-body p-5">
+                        <div
+                            className="card-header text-white text-center py-4"
+                            style={{
+                                background:
+                                    "linear-gradient(90deg,#7c3aed,#2563eb)"
+                            }}
+                        >
 
-                            <h2 className="text-center mb-4">
+                            <h2 className="fw-bold mb-2">
+
                                 Student Grade Management
+
                             </h2>
 
-                            <h5 className="text-center text-secondary mb-4">
-                                Admin Login
-                            </h5>
+                            <p className="mb-0">
+
+                                Secure Admin Portal
+
+                            </p>
+
+                        </div>
+
+                        <div className="card-body p-5">
 
                             <form onSubmit={handleLogin}>
 
@@ -107,6 +160,36 @@ Swal.fire({
                                 </button>
 
                             </form>
+
+                            <div className="text-center my-4">
+
+                                <span className="text-muted">
+
+                                    OR
+
+                                </span>
+
+                            </div>
+
+                            <button
+                                className="btn btn-success w-100"
+                                onClick={handleDemoLogin}
+                            >
+
+                                🚀 Explore Live Demo
+
+                            </button>
+
+                            <div className="text-center mt-4">
+
+                                <small className="text-muted">
+
+                                    Recruiters can explore the complete
+                                    application instantly without credentials.
+
+                                </small>
+
+                            </div>
 
                         </div>
 
